@@ -45,6 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/theme_button"
+                android:onClick="signInOut"
                 android:text="@string/sign_in"
                 android:textStyle="bold" />
 

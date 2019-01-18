@@ -7,17 +7,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.facultchatroom.osnova.R;
-import com.facultchatroom.osnova.models.User;
+import info.facult.facultchats.R;
+import info.facult.facultchats.osnova.models.Users;
 
 import java.util.ArrayList;
 
 public class UserRecyclerAdapter extends RecyclerView.Adapter<UserRecyclerAdapter.ViewHolder>{
 
-    private ArrayList<User> mUsers = new ArrayList<>();
+    private ArrayList<Users> mUsers = new ArrayList<>();
 
 
-    public UserRecyclerAdapter(ArrayList<User> users) {
+    public UserRecyclerAdapter(ArrayList<Users> users) {
         this.mUsers = users;
     }
 

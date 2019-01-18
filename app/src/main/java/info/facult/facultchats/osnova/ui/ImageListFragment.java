@@ -11,8 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.facultchatroom.osnova.R;
-import com.facultchatroom.osnova.adapters.ImageListRecyclerAdapter;
+import info.facult.facultchats.R;
+import info.facult.facultchats.osnova.adapters.ImageListRecyclerAdapter;
 
 import java.util.ArrayList;
 
@@ -58,12 +58,11 @@ public class ImageListFragment extends Fragment implements ImageListRecyclerAdap
     private void getImageResouces(){
         mImageResources.add(R.drawable.cwm_logo);
         mImageResources.add(R.drawable.cartman_cop);
-        mImageResources.add(R.drawable.eric_cartman);
+        mImageResources.add(R.drawable.girl);
         mImageResources.add(R.drawable.ike);
-        mImageResources.add(R.drawable.kyle);
-        mImageResources.add(R.drawable.satan);
+        mImageResources.add(R.drawable.man);
         mImageResources.add(R.drawable.chef);
-        mImageResources.add(R.drawable.tweek);
+
     }
 
     private void initRecyclerview(){

@@ -3,40 +3,40 @@ package info.facult.facultchats.osnova.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class User implements Parcelable {
+public class Users implements Parcelable {
 
     private String email;
     private String user_id;
     private String username;
     private String avatar;
 
-    public User(String email, String user_id, String username, String avatar) {
+    public Users(String email, String user_id, String username, String avatar) {
         this.email = email;
         this.user_id = user_id;
         this.username = username;
-        this.avatar = avatar;
+        this.avatar =   avatar;
     }
 
-    public User() {
+    public Users() {
 
     }
 
-    protected User(Parcel in) {
+    protected Users(Parcel in) {
         email = in.readString();
         user_id = in.readString();
         username = in.readString();
         avatar = in.readString();
     }
 
-    public static final Creator<User> CREATOR = new Creator<User>() {
+    public static final Creator<Users> CREATOR = new Creator<Users>() {
         @Override
-        public User createFromParcel(Parcel in) {
-            return new User(in);
+        public Users createFromParcel(Parcel in) {
+            return new Users(in);
         }
 
         @Override
-        public User[] newArray(int size) {
-            return new User[size];
+        public Users[] newArray(int size) {
+            return new Users[size];
         }
     };
 
@@ -48,7 +48,7 @@ public class User implements Parcelable {
         this.avatar = avatar;
     }
 
-    public static Creator<User> getCREATOR() {
+    public static Creator<Users> getCREATOR() {
         return CREATOR;
     }
 

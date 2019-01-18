@@ -6,13 +6,13 @@ import java.util.Date;
 
 public class ChatMessage {
 
-    private User user;
+    private Users user;
     private String message;
     private String message_id;
     private @ServerTimestamp
     Date timestamp;
 
-    public ChatMessage(User user, String message, String message_id, Date timestamp) {
+    public ChatMessage(Users user, String message, String message_id, Date timestamp) {
         this.user = user;
         this.message = message;
         this.message_id = message_id;
@@ -23,11 +23,11 @@ public class ChatMessage {
 
     }
 
-    public User getUser() {
+    public Users getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Users user) {
         this.user = user;
     }
 

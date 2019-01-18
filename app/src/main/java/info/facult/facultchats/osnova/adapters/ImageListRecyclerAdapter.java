@@ -10,9 +10,10 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.facultchatroom.osnova.R;
 
 import java.util.ArrayList;
+
+import info.facult.facultchats.R;
 
 public class ImageListRecyclerAdapter extends RecyclerView.Adapter<ImageListRecyclerAdapter.ViewHolder>{
 

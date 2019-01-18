@@ -9,9 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.facultchatroom.osnova.R;
-import com.facultchatroom.osnova.models.ChatMessage;
-import com.facultchatroom.osnova.models.User;
+import info.facult.facultchats.R;
+import info.facult.facultchats.osnova.models.ChatMessage;
+import info.facult.facultchats.osnova.models.Users;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -19,11 +19,11 @@ import java.util.ArrayList;
 public class ChatMessageRecyclerAdapter extends RecyclerView.Adapter<ChatMessageRecyclerAdapter.ViewHolder>{
 
     private ArrayList<ChatMessage> mMessages = new ArrayList<>();
-    private ArrayList<User> mUsers = new ArrayList<>();
+    private ArrayList<Users> mUsers = new ArrayList<>();
     private Context mContext;
 
     public ChatMessageRecyclerAdapter(ArrayList<ChatMessage> messages,
-                                      ArrayList<User> users,
+                                      ArrayList<Users> users,
                                       Context context) {
         this.mMessages = messages;
         this.mUsers = users;

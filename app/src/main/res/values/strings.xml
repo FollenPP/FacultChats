@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ChatRoom</string>
+    <string name="app_name">Chat</string>
     <string name="google_map_api_key">AIzaSyB78rWGJIfqviqFmZLC6o2P1otkYSAbtZM</string>
 
     <!-- Strings related to login -->
@@ -55,3 +55,4 @@
 
 
 </resources>
+

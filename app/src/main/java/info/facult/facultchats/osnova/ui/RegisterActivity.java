@@ -13,8 +13,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.facultchatroom.osnova.R;
-import com.facultchatroom.osnova.models.User;
+import info.facult.facultchats.R;
+import info.facult.facultchats.osnova.models.Users;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -24,7 +24,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
 
 import static android.text.TextUtils.isEmpty;
-import static com.facultchatroom.osnova.util.Check.doStringsMatch;
+import static info.facult.facultchats.osnova.util.Check.doStringsMatch;
 
 
 public class RegisterActivity extends AppCompatActivity implements
@@ -58,14 +58,14 @@ public class RegisterActivity extends AppCompatActivity implements
 
     /**
      * Register a new email and password to Firebase Authentication
-     * @param email
+     * @param
      * @param password
      */
     public void registerNewEmail(final String email, String password){
 
         showDialog();
 
-        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)  //Добавление в базу пользователей
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -75,7 +75,7 @@ public class RegisterActivity extends AppCompatActivity implements
                             Log.d(TAG, "onComplete: AuthState: " + FirebaseAuth.getInstance().getCurrentUser().getUid());
 
                             //insert some default data
-                            User user = new User();
+                            Users user = new Users();
                             user.setEmail(email);
                             user.setUsername(email.substring(0, email.indexOf("@")));
                             user.setUser_id(FirebaseAuth.getInstance().getUid());
@@ -89,7 +89,7 @@ public class RegisterActivity extends AppCompatActivity implements
                                     .collection(getString(R.string.collection_users))
                                     .document(FirebaseAuth.getInstance().getUid());
 
-                            newUserRef.set(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            newUserRef.set(user).addOnCompleteListener(new OnCompleteListener<Void>() { //Вот здесь
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     hideDialog();
@@ -98,7 +98,7 @@ public class RegisterActivity extends AppCompatActivity implements
                                         redirectLoginScreen();
                                     }else{
                                         View parentLayout = findViewById(android.R.id.content);
-                                        Snackbar.make(parentLayout, "Something went wrong.", Snackbar.LENGTH_SHORT).show();
+                                        Snackbar.make(parentLayout, "Что-то пошло не так.", Snackbar.LENGTH_SHORT).show();
                                     }
                                 }
                             });
@@ -106,7 +106,7 @@ public class RegisterActivity extends AppCompatActivity implements
                         }
                         else {
                             View parentLayout = findViewById(android.R.id.content);
-                            Snackbar.make(parentLayout, "Something went wrong.", Snackbar.LENGTH_SHORT).show();
+                            Snackbar.make(parentLayout, "Что-то пошло не так.", Snackbar.LENGTH_SHORT).show();
                             hideDialog();
                         }
 
@@ -121,7 +121,7 @@ public class RegisterActivity extends AppCompatActivity implements
     private void redirectLoginScreen(){
         Log.d(TAG, "redirectLoginScreen: redirecting to login screen.");
 
-        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+        Intent intent = new Intent(RegisterActivity.this, LoginDB.class);
         startActivity(intent);
         finish();
     }
@@ -159,11 +159,11 @@ public class RegisterActivity extends AppCompatActivity implements
                         //Initiate registration task
                         registerNewEmail(mEmail.getText().toString(), mPassword.getText().toString());
                     }else{
-                        Toast.makeText(RegisterActivity.this, "Passwords do not Match", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "Пароли не совпадают", Toast.LENGTH_SHORT).show();
                     }
 
                 }else{
-                    Toast.makeText(RegisterActivity.this, "You must fill out all the fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Поля должны быть заполнены", Toast.LENGTH_SHORT).show();
                 }
                 break;
             }

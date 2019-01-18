@@ -9,9 +9,10 @@ import android.view.View;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.facultchatroom.osnova.R;
-import com.facultchatroom.osnova.UserClient;
-import com.facultchatroom.osnova.models.User;
+
+import info.facult.facultchats.R;
+import info.facult.facultchats.UserClient;
+import info.facult.facultchats.osnova.models.Users;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -110,7 +111,7 @@ public class ProfileActivity extends AppCompatActivity implements
                 .into(mAvatarImage);
 
         // update the client and database
-        User user = ((UserClient)getApplicationContext()).getUser();
+        Users user = ((UserClient)getApplicationContext()).getUser();
         user.setAvatar(String.valueOf(resource));
 
         FirebaseFirestore.getInstance()

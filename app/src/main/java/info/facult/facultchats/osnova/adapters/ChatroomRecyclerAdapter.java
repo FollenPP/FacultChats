@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.facultchatroom.osnova.R;
-import com.facultchatroom.osnova.models.Chatroom;
+import info.facult.facultchats.R;
+import info.facult.facultchats.osnova.models.Chatroom;
 
 import java.util.ArrayList;
 
